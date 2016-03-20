@@ -25,7 +25,7 @@ def kmeans(Z,STO):# pg please make Z a np array like the one described below :P
 	Z = np.float32(Z)
 	# define criteria and apply kmeans()
 	criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 10, 1.0)
-	ret,label,center=cv2.kmeans(Z,1,None,criteria,10,cv2.KMEANS_RANDOM_CENTERS)
+	ret,label,center=cv2.kmeans(Z,1,criteria,10,cv2.KMEANS_RANDOM_CENTERS)
 	# pls add corresponding entries for each cluster
 	# Now separate the data, Note the flatten()
 	A = Z[label.ravel()==0]

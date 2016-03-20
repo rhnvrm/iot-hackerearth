@@ -13,12 +13,12 @@ plt.ion()
 plt.show()
 plt.clf()
 
-x1=0
+x1=-1
 y1=0
-x2=8
+x2=0
 y2=0
-x3=4
-y3=3
+x3=1
+y3=0
 
 def kmeans(Z,STO):# pg please make Z a np array like the one described below :P
 	#Z = np.array([[a1,b1],[x1,y1],[x2,y2],[a3,b3],[a2,b2]])
@@ -27,7 +27,7 @@ def kmeans(Z,STO):# pg please make Z a np array like the one described below :P
 	Z = np.float32(Z)
 	# define criteria and apply kmeans()
 	criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 10, 1.0)
-	ret,label,center=cv2.kmeans(Z,1,None,criteria,10,cv2.KMEANS_RANDOM_CENTERS)
+	ret,label,center=cv2.kmeans(Z,1,criteria,10,cv2.KMEANS_RANDOM_CENTERS)
 	# pls add corresponding entries for each cluster
 	# Now separate the data, Note the flatten()
 	A = Z[label.ravel()==0]
@@ -71,7 +71,7 @@ def Intersects(x1,y1,x2,y2,x3,y3,r1,r2,r3):
 		sy2 = sy2 + y1
 #	if take set with min abs error from dist from the 3rd side
 	
-	if (abs((((sx1-x3)**2 +(sy1-y3)**2)**0.5)-r3)<=	abs((((sx2-x3)**2 +(sy2-y3)**2)**0.5)-r3)):
+	if (abs((((sx1-x3)**2 +(sy1-y3)**2)**0.5)-r3)>=	abs((((sx2-x3)**2 +(sy2-y3)**2)**0.5)-r3)):
 		return [[sx2,sy2]]
 	else:
 		return [[sx1,sy1]]
@@ -133,7 +133,7 @@ def print_distance_lookup_table():
 	
 
 
-conn = r.connect( "10.6.5.124", 28015 , db='heck')
+conn = r.connect( "0.0.0.0", 28015 , db='heck')
 
 ATTN = 2
 
