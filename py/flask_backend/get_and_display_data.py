@@ -118,7 +118,7 @@ def print_distance_lookup_table():
 	
 
 
-conn = r.connect( "localhost", 28015 , db='heck')
+conn = r.connect( "0.0.0.0", 28015 , db='heck')
 
 ATTN = 2
 
